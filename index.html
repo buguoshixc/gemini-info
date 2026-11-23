@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Periodic Table of Gemini — Gemini 4 Element Model Guide</title>
+  <link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle ambient quantum glow backdrop -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-gold"></div>
+    <div class="glow-orb orb-violet"></div>
+    <div class="glow-orb orb-cyan"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">G4</div>
+        <div class="brand-text">
+          <span class="brand-sub" id="ui-brand-subtitle">GEMINI 4 ELEMENT CATALOG</span>
+          <h1 class="brand-title" id="ui-hero-title">The Periodic Table of Gemini</h1>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <!-- Compare Models Trigger -->
+        <button id="btn-open-compare" class="btn-compare" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+          </svg>
+          <span id="ui-compare-btn-text">Compare Models</span>
+          <span id="compare-count-badge" class="compare-badge">2</span>
+        </button>
+
+        <!-- Language Switcher EN / 中文 -->
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh">中文</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- Hero Intro & Mythbuster Banner -->
+    <section class="hero-section">
+      <p class="hero-desc" id="ui-hero-desc">
+        Google names the Gemini 4 lineup after chemical elements instead of sequential version numbers. Explore the full periodic table below — glowing elements represent active Gemini models. Click any active element to inspect its tier, thinking budgets, and ideal workloads.
+      </p>
+
+      <div class="mythbuster-banner">
+        <div class="myth-icon" aria-hidden="true">⚛️</div>
+        <div class="myth-content">
+          <strong id="ui-myth-title">Mythbuster: Atomic Number ≠ Model Size</strong>
+          <span id="ui-myth-text">
+            Unlike traditional v1 → v2 numbering, a higher atomic number doesn't mean a larger model. Carbon (#6) is the heaviest frontier model, while Argon (#18) and Neon (#10) optimize for reasoning and production efficiency.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workload Spotlight Filters & Tier Color Legend -->
+    <section class="controls-bar" aria-label="Spotlight filters and tier legend">
+      <div class="filter-group">
+        <span class="control-label" id="ui-filter-label">Spotlight by Workload:</span>
+        <div class="filter-pills" id="filter-pills-container">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <div class="active-filter-banner" id="active-filter-banner">
+        <span class="pulse-dot"></span>
+        <span id="active-filter-desc">Showing all 4 active Gemini 4 element models lit up across the periodic table.</span>
+      </div>
+
+      <div class="legend-bar">
+        <span class="control-label" id="ui-legend-title">Tier Legend:</span>
+        <div class="legend-items">
+          <button type="button" class="legend-chip chip-gold" data-atomic="6">
+            <span class="chip-dot"></span>
+            <span><strong>#6 C</strong> Carbon · #1 Frontier</span>
+          </button>
+          <button type="button" class="legend-chip chip-violet" data-atomic="18">
+            <span class="chip-dot"></span>
+            <span><strong>#18 Ar</strong> Argon · #2 Efficient Reasoning</span>
+          </button>
+          <button type="button" class="legend-chip chip-emerald" data-atomic="10">
+            <span class="chip-dot"></span>
+            <span><strong>#10 Ne</strong> Neon · #3 Pareto Production</span>
+          </button>
+          <button type="button" class="legend-chip chip-cyan" data-atomic="1">
+            <span class="chip-dot"></span>
+            <span><strong>#1 H</strong> Hydrogen · #4 Fast Executor</span>
+          </button>
+          <span class="legend-chip chip-dimmed">
+            <span class="chip-dot"></span>
+            <span id="ui-legend-dimmed">Unclaimed Element (114)</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 118-Element Periodic Table Wrapper -->
+    <section class="periodic-section" aria-label="Interactive Periodic Table of Gemini">
+      <div class="periodic-scroll-wrapper">
+        <div id="periodic-grid" class="periodic-grid">
+          <!-- 118 Element tiles + Lanthanide/Actinide placeholders rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- True Capability & Tier Hierarchy Strip (Ordered C #6 > Ar #18 > Ne #10 > H #1) -->
+    <section class="hierarchy-section" aria-label="True Capability Hierarchy">
+      <div class="section-header">
+        <div>
+          <h2 id="ui-hierarchy-title">True Capability &amp; Tier Hierarchy (Ordered by Raw Reasoning Weight)</h2>
+          <p id="ui-hierarchy-subtitle">How the 4 active Gemini elements rank from heaviest frontier planner to fastest agentic executor</p>
+        </div>
+      </div>
+
+      <div id="hierarchy-cards-grid" class="hierarchy-grid">
+        <!-- Rendered by app.js in capability rank order: Carbon (#6) -> Argon (#18) -> Neon (#10) -> Hydrogen (#1) -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Slide-Over Detail Drawer (Opens when clicking an active element or hierarchy card) -->
+  <div id="drawer-backdrop" class="drawer-backdrop hidden" aria-hidden="true"></div>
+  <aside id="detail-drawer" class="detail-drawer hidden" aria-label="Model Detail Inspector">
+    <div class="drawer-header">
+      <div id="drawer-element-badge" class="drawer-element-tile">
+        <!-- Populated by app.js -->
+      </div>
+      <div class="drawer-title-block">
+        <div id="drawer-rank-pill" class="drawer-rank-pill"></div>
+        <h2 id="drawer-model-name" class="drawer-model-name">Gemini 4 Carbon</h2>
+        <p id="drawer-tier-name" class="drawer-tier-name">Frontier Flagship / Heavy Planner</p>
+      </div>
+      <button id="btn-close-drawer" class="icon-close-btn" type="button" aria-label="Close drawer">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <p id="drawer-tagline" class="drawer-tagline"></p>
+
+      <!-- Action bar inside drawer -->
+      <div class="drawer-action-row">
+        <button id="btn-drawer-toggle-compare" type="button" class="btn-secondary-action">
+          + Add to Compare
+        </button>
+        <button id="btn-drawer-open-compare" type="button" class="btn-primary-action">
+          Compare Side-by-Side
+        </button>
+      </div>
+
+      <!-- Quick Specs Grid -->
+      <div class="specs-grid">
+        <div class="spec-box">
+          <span class="spec-label" id="ui-spec-legacy">Classic Tier Equivalent</span>
+          <strong class="spec-value" id="drawer-legacy-eq"></strong>
+        </div>
+        <div class="spec-box">
+          <span class="spec-label" id="ui-spec-context">Context Window</span>
+          <strong class="spec-value" id="drawer-context"></strong>
+        </div>
+        <div class="spec-box">
+          <span class="spec-label" id="ui-spec-thinking">Thinking Budgets</span>
+          <div class="thinking-badges" id="drawer-thinking-badges"></div>
+        </div>
+        <div class="spec-box">
+          <span class="spec-label" id="ui-spec-modalities">Native Modalities</span>
+          <div class="modality-tags" id="drawer-modalities"></div>
+        </div>
+      </div>
+
+      <!-- Why This Element Name? -->
+      <div class="drawer-card">
+        <h3 id="ui-why-element-title">Why This Element Name?</h3>
+        <p id="drawer-why-element"></p>
+      </div>
+
+      <!-- 5-Axis Capability Profile Bars -->
+      <div class="drawer-card">
+        <h3 id="ui-capability-profile-title">Capability Profile</h3>
+        <div id="drawer-metrics-list" class="metrics-list"></div>
+      </div>
+
+      <!-- Best Workloads & Use Cases -->
+      <div class="drawer-card">
+        <h3 id="ui-best-for-title">Best Workloads &amp; Use Cases</h3>
+        <ul id="drawer-best-for-list" class="bullet-list"></ul>
+      </div>
+
+      <!-- Multi-Agent Pairing Tip -->
+      <div class="drawer-card pairing-card">
+        <h3 id="ui-pairing-title">Multi-Agent Workflow Tip</h3>
+        <p id="drawer-pairing-tip"></p>
+      </div>
+
+      <!-- When to Switch -->
+      <div class="drawer-card">
+        <h3 id="ui-not-ideal-title">When to Switch to Another Element</h3>
+        <p id="drawer-when-to-switch"></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Reaction Chamber: Side-by-Side Comparison Modal -->
+  <div id="compare-modal-backdrop" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="compare-modal" role="dialog" aria-modal="true" aria-labelledby="ui-compare-modal-title">
+      <div class="modal-header">
+        <div>
+          <h2 id="ui-compare-modal-title">Reaction Chamber: Side-by-Side Model Comparison</h2>
+          <p id="ui-compare-modal-subtitle">Select up to 4 Gemini element models to compare their tiers, thinking budgets, and tradeoff curves.</p>
+        </div>
+        <button id="btn-close-compare" class="icon-close-btn" type="button" aria-label="Close comparison modal">✕</button>
+      </div>
+
+      <!-- Model Selector Toggles inside Compare Modal -->
+      <div class="compare-selector-bar">
+        <span id="ui-select-models-prompt" class="control-label">Toggle models below to compare:</span>
+        <div id="compare-model-toggles" class="compare-toggles"></div>
+      </div>
+
+      <!-- Comparison Table Content -->
+      <div class="compare-table-wrapper">
+        <div id="compare-columns-container" class="compare-columns-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Tooltip / Toast for Dimmed Unclaimed Elements -->
+  <div id="element-tooltip" class="element-tooltip hidden" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
