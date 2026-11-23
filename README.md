@@ -1,5 +1,7 @@
 # The Periodic Table of Gemini (`gemini_info`)
 
+**English** | [简体中文](./README.zh-CN.md)
+
 An interactive, zero-build static web guide that maps **Google's Gemini 4 element-named models** onto the complete 118-element Periodic Table—helping developers and users distinguish the true capability hierarchy, thinking budgets, and ideal workloads of each model.
 
 ---
